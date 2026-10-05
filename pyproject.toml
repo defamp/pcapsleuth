@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pcapsleuth"
+version = "1.0.0"
+description = "Network traffic (PCAP) analyzer for blue-team / SOC — flows, IOCs and MITRE-mapped detections."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "Defa Mulya Pratama" }]
+keywords = ["security", "pcap", "network-forensics", "blue-team", "dfir", "mitre-attack", "ioc", "soc"]
+dependencies = ["dpkt>=1.9.8", "rich>=13.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/defamp/pcapsleuth"
+
+[project.scripts]
+pcapsleuth = "pcapsleuth.cli:main"
+
+[tool.setuptools]
+packages = ["pcapsleuth"]

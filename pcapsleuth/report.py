@@ -79,7 +79,9 @@ def render_markdown(rep: Report) -> str:
     if rep.findings:
         L += ["## Detections", "", "| Sev | Finding | MITRE | Detail |", "| --- | --- | --- | --- |"]
         for f in rep.findings:
-            L.append(f"| {f.severity} | {f.title} | {', '.join(f.ttps)} | {f.detail.replace('|','\\|')} |")
+            detail = f.detail.replace("|", "\\|")
+            ttps = ", ".join(f.ttps)
+            L.append(f"| {f.severity} | {f.title} | {ttps} | {detail} |")
         L.append("")
     if any(rep.iocs.values()):
         L += ["## IOCs", ""]
